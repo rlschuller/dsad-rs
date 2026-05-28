@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+( cat $1 | jq -r '.hparams | to_entries[] | ("--" + .key ), .value' | tr '\n' ' '|sed 's; null ; None ;' ; echo )
